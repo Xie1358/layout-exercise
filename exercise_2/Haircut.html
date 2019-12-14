@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+        .main_header {
+            background: #fff;
+            padding-bottom: 10px;
+        }
+
+        .main_header a {
+            color: rgb(117, 116, 116)
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            max-width: 1280px;
+            /* background: #ddd; */
+            position: relative;
+            text-align: center;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .logo {
+            max-width: 30%;
+        }
+
+        .main_header a {
+            font-size: 25px;
+            /* margin: 0 10px; */
+            margin-right:35px;
+            text-align:left;
+            /* display: block; */
+        }
+        .main_header li a {
+            
+            display: block;
+        }
+
+        .main_header .d-flex {
+            justify-content: space-between;
+        }
+        .main_header li {
+            position: relative;
+            list-style: none;
+            text-decoration:none;
+        }
+        .main_header ul li a:hover{
+            background: rgba(136, 134, 134, 0.445);
+        }
+        .submenu{
+            position: absolute;
+            background: #ddd;
+            display: block;
+            /* margin: 0;
+            padding: 0; */
+            opacity: 0;
+            transition: .5s;
+            width: 180px;
+            /* float: right; */
+            max-height: 0;
+        }
+        .main_header li:hover .submenu{
+            opacity: 1; 
+            max-height: 300px;
+            z-index: 1;
+        }
+        /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^header^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+        img {
+            max-width: 100%
+        }
+
+        .logo_icon {
+            position: absolute;
+            max-width: 20%;
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, 0%);
+        }
+
+        .main_bg h1 {
+            position: absolute;
+            color: #fff;
+            left: 50%;
+            top: 47%;
+            transform: translate(-50%, 0%);
+        }
+
+        .main_bg h3 {
+            position: absolute;
+            color: #ddd;
+            left: 50%;
+            top: 55%;
+            transform: translate(-50%, 0%);
+        }
+
+        .main_bg .look_for {
+            position: absolute;
+            max-width: 60%;
+            left: 50%;
+            top: 63%;
+            transform: translate(-50%, 0%);
+
+        }
+
+        .bg_icon {
+            max-width: 1280px;
+            height: 250px;
+            background: url("pics_1129/bg_icon.png");
+        }
+
+        .mia {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^main_bg^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+        .wrapper .box img {
+            /* display: flex; */
+            width: 100%;
+            height: 100%;
+            /* text-align: center; */
+            /* justify-content: center;
+            align-items: center; */
+            /* object-fit: cover; */
+        }
+
+        .bottom_bg {
+            margin: auto 0;
+            text-align: left;
+        }
+
+        .align_left {
+            text-align: left;
+        }
+
+        .display_none {
+            display: none;
+        }
+
+        .border_box {
+            height: 150px;
+            max-width: 150px;
+            border-radius: 50%;
+            border: 1px solid red;
+            overflow: hidden;
+            margin: 5px 20px;
+        }
+
+        .border_box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* height: 100%; */
+
+        }
+
+        .display_bar {
+            display: none;
+        }
+
+        .position_relative {
+            position: relative;
+        }
+        .position_relative p{
+            font-size: 16px;
+            color: #fff;
+            text-shadow: 0px 0px 2px #fff,0 0 3px red,0 0 6px orange,0 0 10px yellow;
+        }
+
+        .position_absolute_1 {
+            position: absolute;
+            left: 45%;
+            top: 90%;
+            transform: translate(-50%, -50%);
+            color: rgb(250, 108, 108);
+            border: 1px solid red;
+            background: rgba(177, 179, 180, 0.925);
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        .position_absolute_2 {
+            position: absolute;
+            left: 50%;
+            top: 85%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+
+        .position_absolute_3 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+
+        @media screen and (max-width:870px) {
+            .main_header .button {
+                display: none;
+            }
+
+            .display_bar {
+                display: block;
+                
+            }
+            .Title_block{
+                display: none;
+            }
+
+        }
+
+        @media screen and (max-width:767px) {
+
+            .bg_icon {
+                height: 550px;
+            }
+
+            /* .look_for {
+                max-width: 320px;
+            } */
+
+            .main_bg h1,
+            .main_bg h3 {
+                font-size: 18px;
+            }
+
+
+        }
+
+        .wrapper .logo_icon_g2 {
+            max-width: 50px;
+        }
+
+        @media screen and (max-width:576px) and (min-width:375.8px) {
+            .display_none {
+                display: block;
+            }
+            .display_block_h1{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:375px) {
+            .main_header .button {
+                display: none;
+            }
+
+            .main_header a {
+                font-size: 20px;
+            }
+
+            .main_bg .long-hair {
+                display: none;
+            }
+
+            .mia {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .phones_pic {
+                /* max-width: 50%; */
+                margin-top: 80px;
+            }
+
+            .display_none {
+                display: block;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main_header">
+        <section class="wrapper d-flex align-items-center">
+            <img class="logo" src="pics_1129/logo.png" alt="">
+            <div class="Title_block">
+                <!-- <img class="logo" src="pics_1129/logo.png" alt=""> -->
+                <a href="">找髮型</a>
+                <a href="">找設計師</a>
+                <a href="">美髮誌</a>
+                <!-- <a class="bb" href="">bbb</a> -->
+            </div>
+            <div class="Title_block">
+                <a href="">註冊</a>
+                <a href="">登入</a>
+                <a href="#"><img class="button" src="pics_1129/setting.png" href="#" alt=""> </a>
+                <!-- <a class="bar" href=""><img src="images/bar.png" alt=""></a> -->
+                <!-- <button type="button"><img src="pics_1129/setting.png"></button> -->
+            </div>
+            <li class="display_bar"><a href=""><img src="images/bar.png" alt=""></a>
+                <ul class="submenu">
+                    <li><a href="">找髮型</a></li>
+                    <li><a href="">找設計師</a></li>
+                    <li><a href="">美髮誌</a></li>
+                    <li><a href="">註冊</a></li>
+                    <li><a href="">登入</a></li>
+
+                </ul>
+            </li>
+            
+            
+        </section>
+    </header>
+
+    <section class="container wrapper main_bg">
+        <div class="row">
+            <div class="col-md-12">
+                <img class="long-hair" src="images/long-hair.jpg" alt="">
+                <img class="mia" src="https://www.kanjiantu.com/images/2019/03/10/-280f3f5a85a81e1f9.jpg" alt="">
+                <img class="logo_icon" src="images/logo_icon_g.svg" alt="">
+                <div class="">
+                    <h1 class="display_block_h1">煩惱髮型嗎</h1>
+                    <h1 class="display_none">簡單預約 隨時有型</h1>
+                    <h3 class="my-1">給你最多髮型靈感及在地優秀設計師</h3>
+                </div>
+                <a href="#"><img class="look_for img-fluid my-5" src="images/look_for.png" alt=""> </a>
+            </div>
+        </div>
+        <div class="container bg_icon">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12 my-5 d-flex  justify-content-center">
+                    <a href=""><img src="pics_1129/icon_search.png" alt=""></a>
+                    <h3 class="mt-5">在地設計師作品輕鬆找</h3>
+                </div>
+                <div class="col-md-4 col-sm-12 my-5 d-flex justify-content-center">
+                    <a href=""><img src="pics_1129/icon_fashion.png" alt=""></a>
+                    <h3 class="mt-5">流行髮型一手掌握</h3>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-5 d-flex justify-content-center">
+                    <a href=""><img src="pics_1129/icon_book.png" alt=""></a>
+                    <h3 class="mt-5">即時溝通預約</h3>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container wrapper mb-5 hot_title">
+        <h1 class="my-3">熱門主題</h1>
+        <div class="row">
+            <div class="col-md-3 col-6 my-2 position_relative">
+                <img src="images/22736_8.jpg" alt="">
+                <p class="position_absolute_1">玫瑰殺雞色系</p>
+            </div>
+            <div class="col-md-3 col-6 my-2 position_relative">
+                <img src="images/9743_2.jpg" alt="">
+                <p class="position_absolute_1">7-11咖啡系</p>
+            </div>
+            <div class="col-md-3 col-6 my-2 position_relative">
+                <img src="images/9743_2.jpg" alt="">
+                <p class="position_absolute_1">7-11咖啡系</p>
+            </div>
+            <div class="col-md-3 col-6 my-2 position_relative">
+                <img src="images/22736_8.jpg" alt="">
+                <p class="position_absolute_1">玫瑰殺雞色系</p>
+            </div>
+        </div>
+
+        <div class="display_none">
+            <h1 class="my-3">人氣設計師</h1>
+            <div class="row d-flex justify-content-center">
+                <div class="">
+                    <div class="border_box position_relative">
+                        <img src="images/14366_18.jpg" alt="">
+                        <p class="position_absolute_2">龐德</p>
+                    </div>
+                    <p>87則貼文<br>1人追蹤</p>
+                </div>
+                <div class="">
+                    <div class="border_box position_relative">
+                        <img src="images/3425_14.jpg" alt="">
+                        <p class="position_absolute_2">阿貓</p>
+                    </div>
+                    <p>78則貼文<br>2人追蹤</p>
+                </div>
+                <div class="">
+                    <div class="border_box position_relative">
+                        <img src="images/9743_2.jpg" alt="">
+                        <p class="position_absolute_2">珍</p>
+                    </div>
+                    <p>870則貼文<br>200人追蹤</p>
+                </div>
+                <div class="">
+                    <div class="border_box position_relative">
+                        <img src="images/22736_8.jpg" alt="">
+                        <p class="position_absolute_2">DODO</p>
+                    </div>
+                    <p>780則貼文<br>200人追蹤</p>
+                </div>
+                <!-- <div class=" border_box col-6">
+                            <img src="images/14366_18.jpg" alt="">
+                        </div>
+                        <div class=" border_box col-6">
+                            <img src="images/3425_14.jpg" alt="">
+                        </div>
+                        <div class=" border_box col-6">
+                            <img src="images/9743_2.jpg" alt="">
+                        </div>
+                        <div class="  border_box col-6">
+                            <img src="images/22736_8.jpg" alt="">
+                        </div> -->
+            </div>
+        </div>
+        <!-- <div>
+       <h1 class="my-3 display_none">人氣設計師</h1>
+        <div class="row ">
+            
+            <div class="col-6">
+                <img src="images/22736_8.jpg" alt="">
+            </div>
+            <div class="col-6">
+                <img src="images/9743_2.jpg" alt="">
+            </div>
+            <div class="col-6">
+                <img src="images/9743_2.jpg" alt="">
+            </div>
+            <div class="col-6">
+                <img src="images/22736_8.jpg" alt="">
+            </div>
+        </div>
+    </div> -->
+
+
+        <h1 class="my-3">趨勢話題</h1>
+        <div class="row">
+
+            <div class="col-md-4 box position_relative">
+                <img src="images/128141.jpg" alt="">
+                <p class="position_absolute_3">韓妞風潮十大韓系髮型強勢來襲</p>
+            </div>
+
+            <div class="col-md-4 box position_relative">
+                <img src="images/138974.jpg" alt="">
+                <p class="position_absolute_3">IG時尚達人瘋狂的歐拉歐拉歐拉</p>
+            </div>
+            <div class="col-md-4 box position_relative">
+                <img src="images/141965.jpg" alt="">
+                <p class="position_absolute_3">半禿寒風</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container wrapper" style="background: #ddd">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8 media">
+                <div class="media-left d-flex align-items-center">
+                    <img class="phones_pic" src="images/phones.png" alt="">
+                </div>
+                <!-- <img class="media-left media-middle phones_pic" src="images/phones.png" alt=""> -->
+                <div class="bottom_bg ">
+                    <h1>快速找到好髮型</h1>
+                    <br>
+                    <a href=""><img src="pics_1129/btn_app_ios.png" alt=""></a>
+                    <a href=""><img src="pics_1129/btn_app_android.png" alt=""></a>
+                    <h3>下載並註冊後就可以發表作品囉!</h3>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <img src="images/bg_bottom.png" alt="">
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-7 media ">
+                <img class="logo_icon_g2" src="images/logo_icon_g2.svg" alt="">
+                <p align=left>HairMap美髮地圖團隊致力於打造出最貼心實用的美髮資訊交流社群，
+                    讓美髮時光成為每個人生命中的美好時刻
+                </p>
+            </div>
+            <div class="col-md-5 align_left">
+                <a href=""><img src="images/email.svg" alt=""></a>
+
+                <a>聯絡我們</a>
+                <a href=""><img src="images/ios.svg" alt=""></a>
+
+                <a>iOS</a>
+                <br>
+                <a href=""><img src="images/facebook_g.svg" alt=""></a>
+
+                <a>粉絲專業</a>
+                <a href=""><img src="images/android.svg" alt=""></a>
+
+                <a>Android</a>
+                <a href=""><img class="mx-3" src="pics_1129/design_Join.png" alt=""></a>
+
+            </div>
+        </div>
+        <div class="mt-5" style="border-top: 2px solid rgb(168, 164, 164)">
+            <p class="py-3">Hairdodo inc. @ 2016. All Rights Reserved 使用者條款與隱私權政策</p>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
